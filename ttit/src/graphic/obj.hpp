@@ -9,6 +9,8 @@
 #define OBJ_HPP_
 
 
+#include <algorithm>
+#include <vector>
 #include <list>
 #include <EGL/egl.h>
 #include <GLES/gl.h>
@@ -16,6 +18,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <fstream.h>
+#include <sstream>
 
 namespace ttit
 {
@@ -27,13 +30,16 @@ namespace ttit
 
 		GLuint verticessize;
 		GLfloat *vertices;
-		GLuint indexsize;
-		GLushort *index;
+		GLuint normalsize;
+		GLfloat *normals;
+		GLuint vindexsize;
+		GLushort *vindex;
+		GLuint nindexsize;
+		GLushort *nindex;
 		bool init;
 	public:
 		obj();
 		void dumpInfo();
-		int readObjFileOld(std::string path);
 		int readObjFile(std::string path);
 		void render();
 	};
